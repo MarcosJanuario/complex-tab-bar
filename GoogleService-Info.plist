@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>335171175729-52c1m78ssnuke0qt8bt8uc3bu8kc7qpj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.335171175729-52c1m78ssnuke0qt8bt8uc3bu8kc7qpj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBbHQs88RN6nOY1o6-9rjx6kElOEdb_OO0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>335171175729</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.prime.news-test</string>
+	<key>PROJECT_ID</key>
+	<string>prime-news-app-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>prime-news-app-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:335171175729:ios:ccd69353861d822e</string>
+	<key>DATABASE_URL</key>
+	<string>https://prime-news-app-dev.firebaseio.com</string>
+</dict>
+</plist>
