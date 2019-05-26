@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //A COR DE FUNDO DO TAB BAR
 //        UITabBar.appearance().barTintColor = .black
         //A COR DO ICONE SELECIONADO DO TABBAR
-        UITabBar.appearance().tintColor = .red
+        UITabBar.appearance().tintColor = UIColor(red: 0, green: 0.3294, blue: 0.6196, alpha: 1.0)
         return true
     }
 

@@ -124,7 +124,7 @@ class SearchController: UIViewController {
                 
                 let hits = jsonResult["esResponse"]["hits"]["hits"]
                 print(hits[0]["_source"]["contentTitle"]["full"])
-                print(hits.count)
+                print(self.view.frame.size.width)
                 
                 for hit in hits.arrayValue {
                     let source = hit["_source"]
@@ -148,8 +148,23 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let title = newsArray[indexPath.row].title
         let teaser = newsArray[indexPath.row].teaser
+        let imageUrl = newsArray[indexPath.row].image
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCellIdentifier") as! NewsCell
+        
+        if let url = URL(string: imageUrl!) {
+            
+            do {
+                let data = try Data(contentsOf: url)
+                cell.sourceImage.image = UIImage(data: data)
+                cell.sourceImageHC.constant = self.view.frame.size.width / 2
+            } catch {
+                
+            }
+        } else {
+            cell.sourceImageHC.constant = 0
+        }
+        
         
         cell.titleLabel.text = title
         cell.teaserLabel.text = teaser

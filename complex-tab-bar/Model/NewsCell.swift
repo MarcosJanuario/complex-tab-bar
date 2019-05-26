@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 class NewsCell: UITableViewCell {
+    @IBOutlet weak var sourceImage: UIImageView!
+    
+    @IBOutlet weak var sourceImageHC: NSLayoutConstraint!
     
     @IBOutlet weak var titleLabel: UILabel!
     
