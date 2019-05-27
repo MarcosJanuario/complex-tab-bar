@@ -57,7 +57,7 @@ class SearchController: UIViewController {
             ],
             "searchTerms": ["apple"],
             "from": 0,
-            "size": 40,
+            "size": 100,
             "sort": [
                 "order": "desc",
                 "sortBy": "contentTimestamp"
@@ -83,6 +83,7 @@ class SearchController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
 //        tableView.estimatedRowHeight = 100
 //        tableView.rowHeight = UITableView.automaticDimension

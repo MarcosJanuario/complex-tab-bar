@@ -17,6 +17,21 @@
                     <view key="view" contentMode="scaleToFill" id="eIk-Ye-KFh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xYt-hZ-hPp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Newsletters" id="0gj-Td-1xF">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="user" id="K3I-ZL-0qH">
+                                            <connections>
+                                                <action selector="openBottomOptions:" destination="vLZ-bK-y48" id="acg-1b-a7I"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="am7-4n-OqT"/>
                     </view>
@@ -26,17 +41,32 @@
             </objects>
             <point key="canvasLocation" x="-1357" y="684"/>
         </scene>
-        <!--Favorites-->
+        <!--Favorites Controller-->
         <scene sceneID="MMF-0N-B6L">
             <objects>
                 <viewController id="VTt-We-kbm" customClass="FavoritesController" customModule="complex_tab_bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F6N-4F-DbU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4aA-Jx-47r">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="My news" id="BMp-p3-fBC">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="user" id="FUM-6P-x8e">
+                                            <connections>
+                                                <action selector="openBottomOptions:" destination="VTt-We-kbm" id="vk8-nm-nKE"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OXy-vA-rXr"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="copas" id="fB3-Rv-c6C"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="fB3-Rv-c6C"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvC-1A-0qu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,19 +99,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoM-PC-alX">
-                                                    <rect key="frame" x="20" y="130" width="374" height="21"/>
+                                                    <rect key="frame" x="20" y="140" width="374" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-tD-Qj7">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="120"/>
+                                                    <rect key="frame" x="20" y="10" width="374" height="120"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="V0q-bU-qRP"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pV2-F5-ARR">
-                                                    <rect key="frame" x="20" y="161" width="374" height="95.5"/>
+                                                    <rect key="frame" x="20" y="169.5" width="374" height="87"/>
                                                     <string key="text">teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -89,7 +124,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eJh-tD-Qj7" firstAttribute="top" secondItem="SzJ-AU-syF" secondAttribute="top" id="6nM-Fa-wT6"/>
+                                                <constraint firstItem="eJh-tD-Qj7" firstAttribute="top" secondItem="SzJ-AU-syF" secondAttribute="top" constant="10" id="6nM-Fa-wT6"/>
                                                 <constraint firstItem="eJh-tD-Qj7" firstAttribute="leading" secondItem="SzJ-AU-syF" secondAttribute="leading" constant="20" id="8hK-Ng-fbh"/>
                                                 <constraint firstAttribute="trailing" secondItem="eJh-tD-Qj7" secondAttribute="trailing" constant="20" id="MzD-i8-L2F"/>
                                                 <constraint firstItem="pV2-F5-ARR" firstAttribute="top" secondItem="XoM-PC-alX" secondAttribute="bottom" constant="10" id="OXQ-xi-h81"/>
@@ -145,7 +180,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Alerts" id="2P2-4S-RSQ">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="user" id="JUL-XL-gSf"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="user" id="JUL-XL-gSf">
+                                            <connections>
+                                                <action selector="openBottomOptions:" destination="hax-Qy-fPK" id="nIB-On-KVJ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -200,6 +239,26 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Login"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="2" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="loginClicked:" destination="M8e-50-pPe" eventType="touchUpInside" id="emI-nN-qKD"/>
                                         </connections>
@@ -247,7 +306,6 @@
     </scenes>
     <resources>
         <image name="alert" width="25" height="25"/>
-        <image name="copas" width="25" height="25"/>
         <image name="page" width="25" height="25"/>
         <image name="search" width="32" height="32"/>
         <image name="user" width="25" height="25"/>
