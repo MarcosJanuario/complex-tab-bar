@@ -166,7 +166,6 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
             cell.sourceImageHC.constant = 0
         }
         
-        
         cell.titleLabel.text = title
         cell.teaserLabel.text = teaser
         

@@ -37,7 +37,12 @@ class NewslettersController: UIViewController {
         //LOG OUT ACTION
         let logoutImage = UIImage(named: "logout")
         let actionLogout = UIAlertAction(title: "Logout", style: .default) { (action) in
-            print("wants to log out!")
+            do {
+                try  Auth.auth().signOut()
+                self.dismiss(animated: true, completion: nil)
+            } catch {
+                print("Error by signing out from Firebase :(")
+            }
         }
         actionLogout.setValue(logoutImage, forKey: "image")
         alert.addAction(actionLogout)
