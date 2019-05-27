@@ -147,6 +147,7 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let source = newsArray[indexPath.row].source
         let title = newsArray[indexPath.row].title
         let teaser = newsArray[indexPath.row].teaser
         let imageUrl = newsArray[indexPath.row].image
@@ -166,6 +167,7 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
             cell.sourceImageHC.constant = 0
         }
         
+        cell.sourceLabel.text = source
         cell.titleLabel.text = title
         cell.teaserLabel.text = teaser
         
