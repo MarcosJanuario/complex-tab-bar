@@ -91,9 +91,13 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZeZ-8b-VxO">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <activityIndicatorView key="tableHeaderView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="9oS-93-JQV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellIdentifier" rowHeight="321" id="rEJ-zq-Qkv" customClass="NewsCell" customModule="complex_tab_bar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="321"/>
+                                        <rect key="frame" x="0.0" y="48" width="414" height="321"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rEJ-zq-Qkv" id="SzJ-AU-syF">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="320.5"/>
@@ -171,6 +175,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="KfG-VX-ihn"/>
                     <connections>
+                        <outlet property="activity" destination="9oS-93-JQV" id="zOx-gP-a4g"/>
+                        <outlet property="searchBar" destination="F16-qY-NVH" id="YY5-Xq-iba"/>
                         <outlet property="tableView" destination="ZeZ-8b-VxO" id="7Hs-TA-zzh"/>
                     </connections>
                 </viewController>

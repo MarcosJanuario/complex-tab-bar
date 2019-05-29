@@ -16,6 +16,10 @@ class SearchController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
     var fbToken: String?
     
     var newsArray = [News]()
@@ -72,8 +76,6 @@ class SearchController: UIViewController {
         "firebase-project-Id": "prime-news-app-dev"
     ]
     
-    var searchTerm: [String] = ["airbus"]
-    
     var from: Int = 0
     
     var articlesArray = [Any]()
@@ -81,9 +83,13 @@ class SearchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activity.isHidden = true
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
+        searchBar.delegate = self
         
 //        tableView.estimatedRowHeight = 100
 //        tableView.rowHeight = UITableView.automaticDimension
@@ -93,17 +99,12 @@ class SearchController: UIViewController {
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
             if error != nil {
                 print(error!)
-//                do {
-//                    try Auth.auth().signOut()
-//                } catch {
-//
-//                }
                 return
             } else {
                 print("NO ERROR GETTING FIREBASE TOKEN ID")
                 self.setFirebaseToken(token: idToken!)
                 self.prepareHeader(token: idToken!)
-                self.getData()
+//                self.getData()
             }
         }
     }
@@ -116,7 +117,24 @@ class SearchController: UIViewController {
         headers["Authorization"] = "Bearer \(token)"
     }
     
+    func updateSearchTerm(searchTerms: [String]) {
+        if var body = queryBody as? [String: Any] {
+            if var searchParameters = body["searchParameters"] as? [String: Any] {
+                
+                searchParameters["searchTerms"] = searchTerms
+                
+                queryBody["searchParameters"] = searchParameters
+            }
+        }
+    }
+    
     func getData() {
+        
+        if activity.isAnimating == false {
+            activity.isHidden = false
+            activity.startAnimating()
+        }
+        
         queryBody["clientToken"] = fbToken
         
         Alamofire.request("https://walls-proxy.prime-intra.net/api/news", method: .post, parameters: queryBody, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
@@ -133,6 +151,8 @@ class SearchController: UIViewController {
                     self.newsArray.append(article)
                 }
                 self.tableView.reloadData()
+                self.activity.isHidden = true
+                self.activity.stopAnimating()
             }
         }
         
@@ -173,4 +193,34 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+}
+
+
+//MARK: SEARCH BAR METHODS
+extension SearchController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Searching \(searchBar.text!)")
+       updateSearchTerm(searchTerms: [searchBar.text!])
+        
+        getData()
+        
+//        tableView.reloadData()
+    }
+    
+    // triggered quando o conteudo da SB é alterado
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            print("SearchBar está vazia")
+            
+            newsArray = []
+            
+            tableView.reloadData()
+            // insere o nosso codigo no main thread para acontecer asyncronicamente
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder() // fecha o teclado do search bar e tira o focus da mesma
+            }
+        }
+    }
+    
 }
