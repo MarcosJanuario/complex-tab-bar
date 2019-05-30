@@ -18,6 +18,7 @@ class News {
     var text: String?
     var teaser: String?
     var image: String?
+    var time: Int64?
     
     init(doc: JSON) {
         self.title = doc["contentTitle"]["full"].string ?? nil
@@ -26,6 +27,7 @@ class News {
         self.text = doc["contentText"]["full"].string ?? nil
         self.teaser = doc["contentTeaser"]["full"].string ?? nil
         self.image = getArticleImage(doc: doc)
+        self.time = doc["contentTimestamp"].int64 ?? nil
     }
     
     func getArticleImage(doc: JSON) -> String {

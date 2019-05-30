@@ -182,7 +182,7 @@ class SearchController: UIViewController {
     }
 }
 
-
+//MARK: SearchBar controller
 extension SearchController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -194,6 +194,9 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
         let title = newsArray[indexPath.row].title
         let teaser = newsArray[indexPath.row].teaser
         let imageUrl = newsArray[indexPath.row].image
+        let timestamp = newsArray[indexPath.row].time ?? 0
+        
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp / 1000))
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCellIdentifier") as! NewsCell
         
@@ -216,6 +219,7 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
         cell.sourceLabel.text = source
         cell.titleLabel.text = title
         cell.teaserLabel.text = teaser
+        cell.timestamp.text = "\(date)"
         
         return cell
     }
@@ -253,6 +257,8 @@ extension SearchController: UISearchBarDelegate {
     }
 }
 
+
+//MARK: Tap gesture to hide keyboard
 extension UIViewController {
     
     func hideKeyboard() {

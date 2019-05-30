@@ -17,4 +17,6 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var teaserLabel: UILabel!
+    
+    @IBOutlet weak var timestamp: UILabel!
 }
