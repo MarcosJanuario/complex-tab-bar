@@ -83,6 +83,8 @@ class SearchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboard()
+        
         activity.isHidden = true
         
         tableView.delegate = self
@@ -91,8 +93,14 @@ class SearchController: UIViewController {
         
         searchBar.delegate = self
         
-//        tableView.estimatedRowHeight = 100
-//        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        print("T I M E   S T A M P")
+        let timestamp = Calendar.current.date(byAdding: .month, value: -1, to: Date())?.timeIntervalSince1970
+        let currentTimestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
+        print("first: \(Int64(timestamp! * 1000 ))")
+        print("currentTimestamp: \(currentTimestamp)")
         
         
         let currentUser = Auth.auth().currentUser
@@ -115,6 +123,21 @@ class SearchController: UIViewController {
     
     func prepareHeader(token: String) {
         headers["Authorization"] = "Bearer \(token)"
+    }
+    
+    func setDate() {
+        
+        let from = Calendar.current.date(byAdding: .month, value: -1, to: Date())?.timeIntervalSince1970
+        let to = Int64(NSDate().timeIntervalSince1970 * 1000)
+        
+        if var body = queryBody as? [String: Any] {
+            if var searchParameters = body["searchParameters"] as? [String: Any] {
+                
+                searchParameters["dateRange"] = ["from": from ?? 0, "to": to]
+                
+                queryBody["searchParameters"] = searchParameters
+            }
+        }
     }
     
     func updateSearchTerm(searchTerms: [String]) {
@@ -179,13 +202,16 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
             do {
                 let data = try Data(contentsOf: url)
                 cell.sourceImage.image = UIImage(data: data)
+//                cell.sourceImage.isHidden = false
                 cell.sourceImageHC.constant = self.view.frame.size.width / 2
             } catch {
                 
             }
         } else {
+//            cell.sourceImage.isHidden = true
             cell.sourceImageHC.constant = 0
         }
+//        self.view.layoutIfNeeded()
         
         cell.sourceLabel.text = source
         cell.titleLabel.text = title
@@ -201,7 +227,10 @@ extension SearchController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Searching \(searchBar.text!)")
-       updateSearchTerm(searchTerms: [searchBar.text!])
+        
+        updateSearchTerm(searchTerms: [searchBar.text!])
+        
+        setDate()
         
         getData()
         
@@ -222,5 +251,17 @@ extension SearchController: UISearchBarDelegate {
             }
         }
     }
+}
+
+extension UIViewController {
     
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

@@ -104,21 +104,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoM-PC-alX">
-                                                    <rect key="frame" x="20" y="166.5" width="374" height="19.5"/>
+                                                    <rect key="frame" x="20" y="185.5" width="374" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wi-sJ-hTE">
-                                                    <rect key="frame" x="20" y="138" width="374" height="20.5"/>
+                                                    <rect key="frame" x="20" y="158" width="374" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-tD-Qj7">
-                                                    <rect key="frame" x="20" y="10" width="374" height="120"/>
+                                                    <rect key="frame" x="20" y="10" width="374" height="140"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="120" id="V0q-bU-qRP"/>
+                                                        <constraint firstAttribute="height" constant="140" id="0Ic-zl-gpL"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -127,7 +127,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="748" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pV2-F5-ARR">
-                                                    <rect key="frame" x="20" y="194.5" width="374" height="95.5"/>
+                                                    <rect key="frame" x="20" y="213.5" width="374" height="76.5"/>
                                                     <string key="text">teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser teaser </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -152,7 +152,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="sourceImage" destination="eJh-tD-Qj7" id="Lfd-l1-3sR"/>
-                                            <outlet property="sourceImageHC" destination="V0q-bU-qRP" id="3WU-qA-fbX"/>
+                                            <outlet property="sourceImageHC" destination="0Ic-zl-gpL" id="U8E-9n-mwm"/>
                                             <outlet property="sourceLabel" destination="4wi-sJ-hTE" id="oOL-uU-vDg"/>
                                             <outlet property="teaserLabel" destination="pV2-F5-ARR" id="fHu-bb-ELw"/>
                                             <outlet property="titleLabel" destination="XoM-PC-alX" id="MTg-4U-yqx"/>
